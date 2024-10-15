@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Transaction Receipt</title>
+    <%- include('./snippets/dashboardHeaders.ejs') %>
+  </head>
+  <body>
+    <%- include('./snippets/dashboardNavbar.ejs') %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <%- include('./snippets/dashboardSidebar.ejs') %>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class="receipt-container mt-5">
+            <div class="receipt-header">
+              <h1>Transaction Receipt</h1>
+            </div>
+
+            <% if (context.payments) { %> <% context.payments.forEach(payment =>
+            { %>
+            <div class="receipt-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <strong>Customer Name:</strong>
+                </div>
+                <div class="col-md-6"><%= payment.cust_fName %></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <strong>Customer Phone:</strong>
+                </div>
+                <div class="col-md-6"><%= payment.custPhone_no %></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <strong>Customer Email:</strong>
+                </div>
+                <div class="col-md-6"><%= payment.cust_email %></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <strong>Customer Address:</strong>
+                </div>
+                <div class="col-md-6"><%= payment.cust_address %></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <strong>Food Ordered:</strong>
+                </div>
+                <div class="col-md-6">
+                  <%= payment.food_id.name %> (x<%= payment.food_quantity %>)
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <strong>Amount Paid:</strong>
+                </div>
+                <div class="col-md-6">
+                  ₦<%= (payment.amount / 100).toFixed(2) %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <strong>Payment Date:</strong>
+                </div>
+                <div class="col-md-6">
+                  <%= payment.payment_date.split('T')[0] %>
+                </div>
+              </div>
+            </div>
+            <% }) %> <% } %>
+
+            <div class="receipt-footer text-start">
+              <a href="/payments" class="back-home">
+                <i class="fa fa-arrow-left me-2"></i>Back
+              </a>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <%- include('./snippets/dashboardScripts.ejs') %>
+  </body>
+</html>

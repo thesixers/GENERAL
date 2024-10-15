@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Details</title>
+    <%- include('./snippets/headers.ejs') %>
+</head>
+<body>
+   
+    <%- include('./snippets/navbar.ejs') %>
+
+    <!-- food  -->
+    <div class="container mt-5">
+        <% var context %>
+        <div class="row">
+            <% if (context.listedFood) { %>
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h4 class="fw-bold fs-4 text-end text-warning mb-4"> <%= context.listedFood.vendor.name %></h4>
+                            <p><strong>Address:</strong> <%= context.listedFood.vendor.address %></p>
+                            <p><strong>Phone Number:</strong> <%= context.listedFood.vendor.phone_no %></p>
+                            <p><strong>Food:</strong> <%= context.listedFood.name %></p>
+                            <p><strong>Amount:</strong> ₦<%= context.listedFood.amount %></p>
+                            <p><strong>Description:</strong> <%= context.listedFood.description %></p>
+                        </div>
+                    </div>
+                </div>
+            
+            
+            <!-- Order Form Column -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h3 class="text-center fw-bold text-warning fs-4">Place Your Order</h3>
+                        <form id="orderForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Enter your name" name="cust_fName">
+                                <div class="cust_fNameErr text-center text-danger"></div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control"  placeholder="Phone number" name="custPhone_no">
+                                <div class="custPhone_noErr text-center text-danger"></div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="hidden" value="<%= context.listedFood._id %>" class="form-control" name="food_id">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Email address" name="cust_email">
+                                <div class="cust_emailErr text-center text-danger"></div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Home address" name="cust_address">
+                                <div class="cust_addressErr text-center text-danger"></div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="number" class="form-control" placeholder="Enter quantity" name="food_quantity">
+                                <div class="food_quantityErr text-center text-danger"></div>
+                            </div>
+                            <button type="submit" class="btn btn-warning w-100 fw-bold">Order</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+        </div>
+    </div>
+   
+
+    <%- include('./snippets/scripts.ejs') %>
+    <script src="/js/orderFood.js"></script>
+</body>
+</html>

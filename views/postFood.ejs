@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Post Food</title>
+    <%- include('./snippets/dashboardHeaders.ejs') %>
+</head>
+  <body>
+   <%- include('./snippets/dashboardNavbar.ejs') %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <%- include('./snippets/dashboardSidebar.ejs') %>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        
+          <h4 class="text-center mt-5 fw-bold fs-3">Post Food</h4>
+          <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <form id="food_form" enctype="multipart/form-data">
+                                <div class="form-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Food type eg; Fried Rice" name="name">
+                                    <div class="nameErr text-center text-danger"></div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="file" class="form-control" id="image" placeholder="food picture" name="img">
+                                    <label for="floatingName">food picture</label>
+                                    <div class="imageErr text-danger text-center"></div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="number" class="form-control" placeholder="Amount" name="amount">
+                                    <div class="amountErr text-center text-danger"></div>
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a comment here" name="description" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Description</label>
+                                    <div class="descriptionErr text-danger text-center"></div>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3 w-100">Publish Food</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        </main>
+      </div>
+    </div>
+
+
+    <%- include('./snippets/dashboardScripts.ejs') %>
+    <script src="/js/postFood.js"></script>
+  </body>
+</html>

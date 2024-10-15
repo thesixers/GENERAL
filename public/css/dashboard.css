@@ -1,0 +1,92 @@
+.bi {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  body {
+    background-color: #f8f9fa;
+    font-family: "Poppins", Arial, sans-serif !important;
+  }
+  
+  
+  
+  @media (min-width: 768px) {
+    .sidebar .offcanvas-lg {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 48px;
+    }
+    .navbar-search {
+      display: block;
+    }
+  }
+  
+  .sidebar .nav-link {
+    font-size: .875rem;
+    font-weight: 500;
+  }
+  
+  
+  .sidebar-heading {
+    font-size: .75rem;
+  }
+  
+  /*
+   * Navbar
+   */
+  
+  .navbar-brand {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color: rgba(146, 138, 138, 0.25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+  }
+  
+  .navbar .form-control {
+    padding: .75rem 1rem;
+  }
+  
+  /* .receipt {
+    font-family: "Poppins", Arial, sans-serif !important;
+    background-color: #f8f9fa;
+    padding: 20px;
+  } */
+  .receipt-container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .receipt-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .receipt-header h1 {
+    margin-bottom: 10px;
+  }
+  .receipt-body {
+    margin-bottom: 30px;
+  }
+  .receipt-body .row {
+    margin-bottom: 15px;
+  }
+  .receipt-footer {
+    text-align: center;
+  }
+  .back-home {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .back-home:hover {
+    text-decoration: underline;
+  }
+  .back-home i {
+    margin-right: 8px;
+    font-size: 24px;
+  }

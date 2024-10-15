@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index</title>
+    <%- include('./snippets/headers.ejs') %>
+</head>
+<body>
+   
+    <%- include('./snippets/navbar.ejs') %>
+     <!-- Banner Section -->
+    <div class="banner mb-5">
+        <img src="./images/banner.jfif" alt="Food Recipe">
+        <div class="banner-text">
+            <h1 class="text-warning">Delicious Recipe</h1>
+            <p >Discover the best food and place your order!</p>
+        </div>
+    </div>
+
+    <!-- food  -->
+    <div class="container">
+        <div class="row">
+            <% if (context.listedFood) { %>
+            <% context.listedFood.forEach(Listed => { %>
+                <div class="col-md-3 mb-4">
+                    <div class="card mx-auto shadow">
+                        <div class="restaurant-tag"><%= Listed.vendor.name %></div>
+                        <img src="./uploads/<%= Listed.img %>" class="px-4 py-2 mt-4" alt="Delicious Food">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title text-warning"><%= Listed.name %></h5>
+                                <h5 class="price">₦<%= Listed.amount %></h5>
+                            </div>
+                            <p class="card-text"><%= Listed.description %></p>
+                            <a href="./vendorCustPage/?food_id=<%= Listed._id %>" class="btn btn-warning w-100">Order</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+            <% } %>
+        </div>
+    </div>
+    
+    <!-- footer  -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="logo">Food Vendors</div>
+                    <p>Place order and get your food right away!</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="copyright">
+                        &copy; 2024 All Rights Reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <%- include('./snippets/scripts.ejs') %>
+</body>
+</html>

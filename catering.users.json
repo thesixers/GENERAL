@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "66c5cd05b62648447e44797b"
+  },
+  "name": "Roban stores",
+  "img": "img_1724239109049.jpg",
+  "address": "16 Gilbert street, Abakaliki, Ebonyi state.",
+  "email": "anigodfreychris2020@gmail.com",
+  "phone_no": "07053086140",
+  "password": "$2b$10$y11JlDlSYuvkCt9MtAt8QuhJDjhaAQ8y7GubyusmjTIOYDX5nkuEG",
+  "__v": 0
+}]

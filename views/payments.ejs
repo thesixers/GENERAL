@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Customer Orders</title>
+    <%- include('./snippets/dashboardHeaders.ejs') %>
+</head>
+  <body>
+   <%- include('./snippets/dashboardNavbar.ejs') %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <%- include('./snippets/dashboardSidebar.ejs') %>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        
+          <h4 class="text-center mt-5 fw-bold fs-3">Customer Orders</h4>
+          <table id="example" class="table table-striped small table-sm text-start" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Food type</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>View Transaction</th>
+                </tr>
+            </thead>
+            <tbody>
+              <% if (context) { %>
+                <% context.payments.forEach(payment => { %>
+                  <tr>
+                    <td><%= payment.food_id.name %></td>
+                    <td><%= (payment.amount / 100).toFixed(2) %></td>
+                    <td><%= payment.payment_date %></td>
+                    <td>
+                      <a href="/transactions?food_id=<%= payment.food_id._id %>"><button class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></button></a>
+                    </td>
+                </tr>
+                <% }) %>
+               
+              <% } %>
+                
+            </tbody>
+          </table>
+        </main>
+      </div>
+    </div>
+
+
+    <%- include('./snippets/dashboardScripts.ejs') %>
+    <script>new DataTable('#example');</script>
+  </body>
+</html>

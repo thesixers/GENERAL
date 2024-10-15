@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard</title>
+    <%- include('./snippets/dashboardHeaders.ejs') %>
+</head>
+  <body>
+   <%- include('./snippets/dashboardNavbar.ejs') %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <%- include('./snippets/dashboardSidebar.ejs') %>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        
+          <h4 class="text-center mt-5 fw-bold fs-1">Sales</h4>
+          <div class="row">
+            <div class="col-lg-6 mb-3">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title fs-6 fw-bold">Total Sales</h5>
+                        <p class="card-text"><h1 class="card-text text-end fw-bold text-danger">₦100,000</h1></p>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title fs-6 fw-bold">Total Orders</h5>
+                        <p class="card-text"><h1 class="card-text text-end fw-bold text-danger">10</h1></p>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          
+        </main>
+      </div>
+    </div>
+
+
+    <%- include('./snippets/dashboardScripts.ejs') %>
+  </body>
+</html>
